@@ -298,3 +298,6 @@ export const getTailwindConfig = () => ({
     themes: ["light"],
   },
 });
+
+// Export colors for use in other projects
+export { colors } from "./styles/colors";

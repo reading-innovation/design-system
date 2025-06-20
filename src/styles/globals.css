@@ -218,7 +218,7 @@
 
   /* Glow effects */
   .glow-primary {
-    box-shadow: 0 0 20px theme("colors.primary");
+    box-shadow: 0 0 20px theme("colors.primary.500");
   }
 
   .glow-accent {

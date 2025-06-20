@@ -1,4 +1,46 @@
 const colors = {
+  // Base colors for gradients (must be flat)
+  primary: {
+    DEFAULT: "#3b82f6",
+    50: "#F8F2FE",
+    100: "#E1C8FA",
+    200: "#CA9FF5",
+    300: "#B477EF",
+    400: "#9D50E8",
+    500: "#872AE0",
+    600: "#701FBD",
+    700: "#591A94",
+    800: "#42156B",
+    900: "#2A0F44",
+  },
+  accent: {
+    DEFAULT: "#f59e0b",
+    50: "#FFF6ED",
+    100: "#FFEBD4",
+    200: "#FFD2A8",
+    300: "#FFB271",
+    400: "#FF8A3D",
+    500: "#FE6511",
+    600: "#EF4B07",
+    700: "#C63508",
+    800: "#9D2B0F",
+    900: "#7E2610",
+  },
+  secondary: {
+    DEFAULT: "#64748b",
+    50: "#FCFCFC",
+    100: "#F6F6F6",
+    200: "#EEEEEE",
+    300: "#B7B7B7",
+    400: "#A0A0A0",
+    500: "#8A8A8A",
+    600: "#707070",
+    700: "#515151",
+    800: "#3B3B3B",
+    900: "#2E2E2E",
+    950: "#171717",
+  },
+
   common: {
     0: "#FFF",
     950: "#000",
@@ -18,7 +60,7 @@ const colors = {
     900: "#2E2E2E",
     950: "#171717",
   },
-  primary: {
+  primaryScale: {
     50: "#F8F2FE",
     100: "#E1C8FA",
     200: "#CA9FF5",

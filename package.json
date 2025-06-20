@@ -14,13 +14,12 @@
   ],
   "scripts": {
     "build": "tsc && yarn build:css",
-    "build:css": "tailwindcss -i ./src/styles/input.css -o ./dist/styles.css",
-    "dev": "tailwindcss -i ./src/styles/input.css -o ./dist/styles.css --watch",
-    "clean": "rm -rf dist",
+    "build:css": "tailwindcss -i ./src/styles/globals.css -o ./dist/styles.css",
+    "dev": "tailwindcss -i ./src/styles/globals.css -o ./dist/styles.css --watch",
     "demo": "yarn build && python3 -m http.server 3000 --directory .",
+    "clean": "rm -rf dist",
     "prepublishOnly": "yarn build",
-    "prepare": "yarn build",
-    "postinstall": "yarn cache clean"
+    "prepare": "yarn build"
   },
   "peerDependencies": {
     "react": "^18.0.0",
@@ -57,10 +56,5 @@
   "homepage": "https://github.com/reading-innovation/design-system#readme",
   "publishConfig": {
     "access": "public"
-  },
-  "resolutions": {
-    "strip-ansi": "^6.0.1",
-    "string-width": "^4.2.3",
-    "wrap-ansi": "^7.0.0"
   }
 }
