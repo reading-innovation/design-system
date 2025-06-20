@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+@layer base {
+  html {
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  body {
+    @apply text-base-content bg-base-100;
+  }
+}
+
+/* Custom component styles */
+@layer components {
+  /* Additional component styles can be added here */
+}
+
+/* Custom utility styles */
+@layer utilities {
+  /* Additional utility styles can be added here */
+}
