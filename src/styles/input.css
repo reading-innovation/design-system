@@ -11,14 +11,180 @@
   body {
     @apply text-base-content bg-base-100;
   }
+
+  /* Custom scrollbar for Reading Innovation design system */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-base-200 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gradient-to-b from-primary to-accent rounded-full border-2 border-base-100;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply from-primary/80 to-accent/80;
+  }
 }
 
 /* Custom component styles */
 @layer components {
-  /* Additional component styles can be added here */
+  /* Reading Innovation Design System - Distinctive Components */
+
+  /* Custom button hover effects */
+  .btn {
+    @apply relative overflow-hidden;
+  }
+
+  .btn::before {
+    content: "";
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full transition-transform duration-500;
+  }
+
+  .btn:hover::before {
+    @apply translate-x-full;
+  }
+
+  /* Custom card effects */
+  .card {
+    @apply relative overflow-hidden;
+  }
+
+  .card::after {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-secondary opacity-0 transition-opacity duration-300;
+  }
+
+  .card:hover::after {
+    @apply opacity-100;
+  }
+
+  /* Custom input styling */
+  .input {
+    @apply transition-all duration-300 border-2;
+  }
+
+  .input:focus {
+    @apply border-primary/50 shadow-lg shadow-primary/25 scale-105;
+  }
+
+  /* Custom select styling */
+  .select {
+    @apply transition-all duration-300 border-2;
+  }
+
+  .select:focus {
+    @apply border-primary/50 shadow-lg shadow-primary/25;
+  }
+
+  /* Custom checkbox and radio */
+  .checkbox,
+  .radio {
+    @apply transition-all duration-300;
+  }
+
+  .checkbox:checked,
+  .radio:checked {
+    @apply scale-110 shadow-lg shadow-primary/25;
+  }
+
+  /* Custom alert styling */
+  .alert {
+    @apply border-2 border-l-4 transition-all duration-300;
+  }
+
+  .alert:hover {
+    @apply scale-105 shadow-lg;
+  }
+
+  /* Custom badge styling */
+  .badge {
+    @apply font-bold tracking-wide transition-all duration-300;
+  }
+
+  .badge:hover {
+    @apply scale-110 shadow-md;
+  }
+
+  /* Custom tab styling */
+  .tab {
+    @apply transition-all duration-300 border-b-2 border-transparent;
+  }
+
+  .tab[aria-selected="true"] {
+    @apply border-primary bg-gradient-to-r from-primary/10 to-accent/10;
+  }
+
+  /* Custom modal styling */
+  .modal-box {
+    @apply border-2 border-primary/30 shadow-2xl;
+  }
+
+  .modal-box::before {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-secondary;
+  }
 }
 
 /* Custom utility styles */
 @layer utilities {
-  /* Additional utility styles can be added here */
+  /* Reading Innovation Design System - Custom Utilities */
+
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: 0 0 20px theme("colors.primary");
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 20px theme("colors.accent");
+  }
+
+  .glow-secondary {
+    box-shadow: 0 0 20px theme("colors.secondary");
+  }
+
+  /* Custom gradients */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent;
+  }
+
+  .gradient-border {
+    @apply border-2 border-transparent bg-gradient-to-r from-primary via-accent to-secondary bg-clip-border;
+  }
+
+  /* Custom animations */
+  .animate-bounce-slow {
+    animation: bounce 2s infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s infinite;
+  }
+
+  /* Custom hover effects */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-primary/25;
+  }
+
+  /* Custom focus effects */
+  .focus-ring {
+    @apply focus:ring-4 focus:ring-primary/25 focus:ring-offset-2 focus:ring-offset-base-100;
+  }
+
+  /* Reading Innovation branding */
+  .ri-brand {
+    @apply relative;
+  }
+
+  .ri-brand::before {
+    content: "RI";
+    @apply absolute -top-2 -right-2 text-xs font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent opacity-50;
+  }
 }
