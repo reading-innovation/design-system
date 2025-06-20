@@ -58,7 +58,6 @@ export const getTailwindConfig = () => ({
       },
     },
   },
-  plugins: [require("daisyui")],
   daisyui: {
     themes: [
       {

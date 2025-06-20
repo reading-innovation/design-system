@@ -13,7 +13,7 @@
     "src/utils"
   ],
   "scripts": {
-    "build": "tsc && npm run build:css",
+    "build": "tsc && yarn build:css",
     "build:css": "tailwindcss -i ./src/styles/input.css -o ./dist/styles.css",
     "dev": "tailwindcss -i ./src/styles/input.css -o ./dist/styles.css --watch",
     "clean": "rm -rf dist"
@@ -25,17 +25,15 @@
   "devDependencies": {
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
     "autoprefixer": "^10.4.16",
     "clsx": "^2.0.0",
     "daisyui": "^4.4.0",
     "postcss": "^8.4.31",
     "tailwind-merge": "^2.0.0",
-    "tailwindcss": "^3.3.5",
-    "typescript": "^5.2.2"
-  },
-  "dependencies": {
-    "clsx": "^2.0.0",
-    "tailwind-merge": "^2.0.0"
+    "tailwindcss": "^3.3.5"
   },
   "keywords": [
     "design-system",
@@ -50,9 +48,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/reading-innovation/daisyui-design-system.git"
+    "url": "https://github.com/reading-innovation/design-system.git"
   },
-  "homepage": "https://github.com/reading-innovation/daisyui-design-system#readme",
+  "homepage": "https://github.com/reading-innovation/design-system#readme",
   "publishConfig": {
     "access": "public"
   }

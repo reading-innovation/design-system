@@ -17,19 +17,23 @@ This repository contains:
 
 ```bash
 # Using yarn
-yarn add github:reading-innovation/daisyui-design-system
+yarn add https://github.com/reading-innovation/design-system.git
 
 # Using npm
-npm install github:reading-innovation/daisyui-design-system
+npm install https://github.com/reading-innovation/design-system.git
 ```
 
-### 2. Install Required Dependencies
+Or add to your `package.json`:
 
-```bash
-npm install daisyui tailwindcss autoprefixer postcss clsx tailwind-merge
+```json
+{
+  "dependencies": {
+    "@reading-innovation/design-system": "https://github.com/reading-innovation/design-system.git"
+  }
+}
 ```
 
-### 3. Create Tailwind Config (One-time setup)
+### 2. Create Tailwind Config (One-time setup)
 
 Create `tailwind.config.js` in your project root:
 
@@ -40,7 +44,7 @@ const { getTailwindConfig } = require("@reading-innovation/design-system");
 module.exports = getTailwindConfig();
 ```
 
-### 4. Create PostCSS Config (One-time setup)
+### 3. Create PostCSS Config (One-time setup)
 
 Create `postcss.config.js` in your project root:
 
@@ -53,7 +57,7 @@ module.exports = {
 };
 ```
 
-### 5. Import Styles
+### 4. Import Styles
 
 In your main CSS file (e.g., `app/globals.css` or `styles/globals.css`):
 
@@ -66,7 +70,7 @@ In your main CSS file (e.g., `app/globals.css` or `styles/globals.css`):
 @import "@reading-innovation/design-system/src/styles/input.css";
 ```
 
-### 6. Set Theme
+### 5. Set Theme
 
 In your root layout or component:
 
@@ -85,7 +89,7 @@ export default function RootLayout({
 }
 ```
 
-### 7. Start Using Components!
+### 6. Start Using Components!
 
 ```tsx
 import {
@@ -264,13 +268,12 @@ npm run clean
 
 ## 📋 Complete Setup Checklist
 
-1. ✅ **Install design system**: `yarn add github:reading-innovation/daisyui-design-system`
-2. ✅ **Install dependencies**: `npm install daisyui tailwindcss autoprefixer postcss clsx tailwind-merge`
-3. ✅ **Create tailwind.config.js** (one line with `getTailwindConfig()`)
-4. ✅ **Create postcss.config.js** (standard config)
-5. ✅ **Import styles** in your CSS file
-6. ✅ **Set theme** in your layout
-7. ✅ **Start using components!**
+1. ✅ **Install design system**: `yarn add https://github.com/reading-innovation/design-system.git`
+2. ✅ **Create tailwind.config.js** (one line with `getTailwindConfig()`)
+3. ✅ **Create postcss.config.js** (standard config)
+4. ✅ **Import styles** in your CSS file
+5. ✅ **Set theme** in your layout
+6. ✅ **Start using components!**
 
 ## 🔄 Version Control
 
@@ -279,7 +282,7 @@ You can pin to specific versions:
 ```json
 {
   "dependencies": {
-    "@reading-innovation/design-system": "github:reading-innovation/daisyui-design-system#v1.0.0"
+    "@reading-innovation/design-system": "https://github.com/reading-innovation/design-system.git#v1.0.0"
   }
 }
 ```
@@ -289,7 +292,7 @@ Or use specific commits:
 ```json
 {
   "dependencies": {
-    "@reading-innovation/design-system": "github:reading-innovation/daisyui-design-system#commit-hash"
+    "@reading-innovation/design-system": "https://github.com/reading-innovation/design-system.git#commit-hash"
   }
 }
 ```
