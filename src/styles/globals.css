@@ -48,6 +48,89 @@
     @apply translate-x-full;
   }
 
+  .button-answer {
+    @apply border-2 border-solid border-neutral-150 bg-background-primary text-black font-sans;
+  }
+
+  .button-answer:hover {
+    @apply bg-background-secondary;
+  }
+  .button-answer.selected {
+    @apply border-4 border-blue-500 bg-blue-100/60;
+  }
+  .button-answer:not(.selected):hover {
+    @apply bg-background-secondary;
+  }
+
+  .list-item {
+    @apply flex items-center px-5 py-6 text-label-secondary font-semibold text-base leading-[140%] tracking-[0%] bg-background-primary border border-solid border-outline-primary rounded-lg;
+  }
+
+  .list-item:hover {
+    @apply bg-background-secondary;
+  }
+
+  /* Button style from design system */
+  .button {
+    @apply bg-button-primary justify-center text-white rounded-md p-4 h-11 text-body1-m inline-flex gap-1 items-center;
+  }
+
+  .button:hover {
+    @apply bg-control-blue-hover;
+  }
+
+  .button:active {
+    @apply bg-control-blue-pressed;
+  }
+
+  .button:disabled {
+    @apply bg-button-disabled text-label-disabled;
+  }
+
+  .button-outline {
+    @apply bg-background-primary justify-center h-11 border border-solid border-outline-primary rounded-md p-4 shadow-none text-body1-m text-label-primary outline-none;
+  }
+
+  .button-outline:hover {
+    @apply bg-surface-white-hover;
+  }
+
+  .button-outline:active {
+    @apply bg-surface-white-pressed;
+  }
+
+  .button-outline:disabled {
+    @apply text-label-disabled bg-background-primary;
+  }
+
+  .button-ghost {
+    @apply bg-transparent justify-center text-body1-m h-11 text-label-primary radius-md p-4 border-none shadow-none;
+  }
+
+  .button-ghost:hover {
+    @apply bg-surface-white-hover;
+  }
+
+  .button-ghost:active {
+    @apply bg-surface-white-pressed;
+  }
+
+  .button-ghost:disabled {
+    @apply text-label-disabled bg-transparent;
+  }
+
+  .button-xs {
+    @apply px-3 h-9 text-body2-m;
+  }
+
+  .button-sm {
+    @apply px-4 h-11 text-body1-m;
+  }
+
+  .button-lg {
+    @apply px-5 h-[54px] text-heading2-m gap-2 radius-lg;
+  }
+
   /* Custom card effects */
   .card {
     @apply relative overflow-hidden;

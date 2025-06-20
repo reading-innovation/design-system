@@ -6,7 +6,7 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
 }
 
-export const Card: React.FC<CardProps> = ({
+const Card: React.FC<CardProps> = ({
   variant = "default",
   className,
   children,
@@ -38,7 +38,7 @@ export const Card: React.FC<CardProps> = ({
   );
 };
 
-export const CardBody: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
+const CardBody: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   className,
   children,
   ...props
@@ -48,7 +48,7 @@ export const CardBody: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   </div>
 );
 
-export const CardTitle: React.FC<React.HTMLAttributes<HTMLHeadingElement>> = ({
+const CardTitle: React.FC<React.HTMLAttributes<HTMLHeadingElement>> = ({
   className,
   children,
   ...props
@@ -63,7 +63,7 @@ export const CardTitle: React.FC<React.HTMLAttributes<HTMLHeadingElement>> = ({
   </h2>
 );
 
-export const CardActions: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
+const CardActions: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
   className,
   children,
   ...props
@@ -77,3 +77,5 @@ export const CardActions: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
     {children}
   </div>
 );
+
+export { Card, CardBody, CardTitle, CardActions };

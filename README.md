@@ -65,7 +65,7 @@ In your main CSS file (e.g., `app/globals.css` or `styles/globals.css`):
 @tailwind utilities;
 
 /* Import the design system styles */
-@import "@reading-innovation/design-system/src/styles/input.css";
+@import "@reading-innovation/design-system/src/styles/globals.css";
 ```
 
 ### 5. Set Theme
