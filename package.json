@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
-    "dist",
+    "dist/**/*",
     "tailwind.config.js",
     "postcss.config.js",
     "src/styles",
@@ -18,7 +18,8 @@
     "dev": "tailwindcss -i ./src/styles/input.css -o ./dist/styles.css --watch",
     "clean": "rm -rf dist",
     "demo": "yarn build && python3 -m http.server 3000 --directory .",
-    "postinstall": "yarn build"
+    "prepublishOnly": "yarn build",
+    "prepare": "yarn build"
   },
   "peerDependencies": {
     "react": "^18.0.0",
