@@ -19,8 +19,6 @@ This repository contains:
 # Using yarn
 yarn add https://github.com/reading-innovation/design-system.git
 
-# Using npm
-npm install https://github.com/reading-innovation/design-system.git
 ```
 
 Or add to your `package.json`:
@@ -251,19 +249,25 @@ export const CustomButton: React.FC<CustomButtonProps> = ({
 ### Building the Design System
 
 ```bash
-npm run build
+yarn build
 ```
 
 ### Development Mode
 
 ```bash
-npm run dev
+yarn dev
 ```
 
 ### Clean Build
 
 ```bash
-npm run clean
+yarn clean
+```
+
+### View Demo
+
+```bash
+yarn demo
 ```
 
 ## 📋 Complete Setup Checklist

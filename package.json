@@ -16,7 +16,9 @@
     "build": "tsc && yarn build:css",
     "build:css": "tailwindcss -i ./src/styles/input.css -o ./dist/styles.css",
     "dev": "tailwindcss -i ./src/styles/input.css -o ./dist/styles.css --watch",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "demo": "yarn build && python3 -m http.server 3000 --directory .",
+    "postinstall": "yarn build"
   },
   "peerDependencies": {
     "react": "^18.0.0",
