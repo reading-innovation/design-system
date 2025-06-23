@@ -1,4 +1,6 @@
 import plugin from "tailwindcss/plugin";
+import type { Config } from "tailwindcss";
+import daisyui from "daisyui";
 
 export { Button } from "./components/Button";
 export type { ButtonProps } from "./components/Button";
@@ -8,7 +10,7 @@ export type { CardProps } from "./components/Card";
 
 export { cn } from "./utils/cn";
 
-export const getTailwindConfig = () => ({
+export const getTailwindConfig = (): Config => ({
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -275,7 +277,7 @@ export const getTailwindConfig = () => ({
     },
   },
   plugins: [
-    import("daisyui"),
+    daisyui,
     plugin(({ matchUtilities }) => {
       matchUtilities(
         {
@@ -294,9 +296,6 @@ export const getTailwindConfig = () => ({
       );
     }),
   ],
-  daisyui: {
-    themes: ["light"],
-  },
 });
 
 // Export colors for use in other projects
