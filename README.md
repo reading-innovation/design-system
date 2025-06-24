@@ -69,26 +69,7 @@ In your main CSS file (e.g., `app/globals.css` or `styles/globals.css`):
 @import "@reading-innovation/design-system/src/styles/globals.css";
 ```
 
-### 5. Set Theme
-
-In your root layout or component:
-
-```tsx
-// app/layout.tsx or pages/_app.tsx
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en" data-theme="reading-innovation">
-      <body>{children}</body>
-    </html>
-  );
-}
-```
-
-### 6. Start Using Components!
+### 5. Start Using Components!
 
 ```tsx
 import {
@@ -170,113 +151,6 @@ import { Button } from "@reading-innovation/design-system";
 <Button loading>Loading...</Button>
 ```
 
-### Card
-
-```tsx
-import {
-  Card,
-  CardBody,
-  CardTitle,
-  CardActions,
-} from "@reading-innovation/design-system";
-
-<Card variant="default">
-  <CardBody>
-    <CardTitle>Card Title</CardTitle>
-    <p>Card content goes here.</p>
-    <CardActions>
-      <Button variant="primary">Action</Button>
-    </CardActions>
-  </CardBody>
-</Card>;
-```
-
-## 🌙 Theme System
-
-### Available Themes
-
-- `reading-innovation`: Reading Innovation's custom brand theme
-- `light`: Clean, modern light theme
-- `dark`: Elegant dark theme
-
-### Theme Switching
-
-```tsx
-import { themes, type Theme } from "@reading-innovation/design-system";
-
-function ThemeSwitcher() {
-  const [theme, setTheme] = useState<Theme>("reading-innovation");
-
-  const toggleTheme = () => {
-    const newTheme =
-      theme === "reading-innovation" ? "dark" : "reading-innovation";
-    setTheme(newTheme);
-    document.documentElement.setAttribute("data-theme", newTheme);
-  };
-
-  return (
-    <Button onClick={toggleTheme}>
-      Switch to {theme === "reading-innovation" ? "Dark" : "Reading Innovation"}{" "}
-      Mode
-    </Button>
-  );
-}
-```
-
-## 🎯 Customization
-
-### Adding Custom Themes
-
-Extend the themes in your `tailwind.config.js`:
-
-```javascript
-const { getTailwindConfig } = require("@reading-innovation/design-system");
-
-const baseConfig = getTailwindConfig();
-
-module.exports = {
-  ...baseConfig,
-  daisyui: {
-    ...baseConfig.daisyui,
-    themes: [
-      ...baseConfig.daisyui.themes,
-      {
-        "my-custom-theme": {
-          primary: "#your-primary-color",
-          secondary: "#your-secondary-color",
-          // ... other color definitions
-        },
-      },
-    ],
-  },
-};
-```
-
-### Extending Components
-
-You can extend the design system components:
-
-```tsx
-import { Button, type ButtonProps } from "@reading-innovation/design-system";
-
-interface CustomButtonProps extends ButtonProps {
-  icon?: React.ReactNode;
-}
-
-export const CustomButton: React.FC<CustomButtonProps> = ({
-  icon,
-  children,
-  ...props
-}) => {
-  return (
-    <Button {...props}>
-      {icon && <span className="mr-2">{icon}</span>}
-      {children}
-    </Button>
-  );
-};
-```
-
 ## 🔧 Development
 
 ### Building the Design System
@@ -311,39 +185,6 @@ yarn demo
 4. ✅ **Import styles** in your CSS file
 5. ✅ **Set theme** in your layout
 6. ✅ **Start using components!**
-
-## 🔄 Version Control
-
-You can pin to specific versions:
-
-```json
-{
-  "dependencies": {
-    "@reading-innovation/design-system": "https://github.com/reading-innovation/design-system.git#v1.0.0"
-  }
-}
-```
-
-Or use specific commits:
-
-```json
-{
-  "dependencies": {
-    "@reading-innovation/design-system": "https://github.com/reading-innovation/design-system.git#commit-hash"
-  }
-}
-```
-
-## 🤝 Contributing
-
-1. Fork this repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
-## 📄 License
-
-MIT - Feel free to use this design system in Reading Innovation's projects.
 
 ## Font Usage
 

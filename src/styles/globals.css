@@ -1,7 +1,7 @@
 /* Font face declarations */
 @font-face {
   font-family: "Noto Sans";
-  src: url("../../fonts/NotoSans-VariableFont_wdth,wght.ttf") format("truetype");
+  src: url("../fonts/NotoSans-VariableFont_wdth,wght.ttf") format("truetype");
   font-weight: 100 900;
   font-stretch: 75% 125%;
   font-style: normal;
@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: "Noto Sans KR";
-  src: url("../../fonts/NotoSansKR-VariableFont_wght.ttf") format("truetype");
+  src: url("../fonts/NotoSansKR-VariableFont_wght.ttf") format("truetype");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
