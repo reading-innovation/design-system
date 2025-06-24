@@ -1,6 +1,6 @@
 # Reading Innovation's Design System
 
-A DaisyUI-based design system for Next.js applications. This repository can be used directly from GitHub in your projects.
+A design system for Next.js applications. This repository can be used directly from GitHub in your projects.
 
 ## 🎯 Purpose
 
@@ -10,6 +10,7 @@ This repository contains:
 - **Component Library**: Reusable React components built with DaisyUI
 - **Theme System**: Light, dark, and custom themes
 - **Configuration**: Tailwind CSS and DaisyUI setup optimized for Reading Innovation
+- **Storybook**: Interactive component documentation and testing environment
 
 ## 🚀 Quick Start
 
@@ -111,6 +112,38 @@ export default function MyComponent() {
 ```
 
 That's it! 🎉 Your design system is now ready to use.
+
+## 📚 Storybook
+
+This design system includes Storybook for interactive component documentation and testing.
+
+### Running Storybook
+
+```bash
+# Start the development server
+yarn storybook
+
+# Build for production
+yarn build-storybook
+```
+
+Storybook will be available at `http://localhost:6006`
+
+### Features
+
+- **Interactive Controls**: Modify component props in real-time
+- **Component Documentation**: Auto-generated docs with usage examples
+- **Responsive Testing**: Test components at different screen sizes
+- **Accessibility Testing**: Built-in a11y tools
+- **Theme Switching**: Test components with different themes
+
+### Available Stories
+
+- **Welcome**: Introduction to the design system
+- **Button**: All button variants, sizes, and states
+- **More components coming soon...**
+
+For detailed Storybook documentation, see [STORYBOOK.md](./STORYBOOK.md).
 
 ## 🎨 Available Components
 
@@ -426,3 +459,199 @@ The variable fonts support weights from 100 to 900:
 - `font-bold` (700)
 - `font-extrabold` (800)
 - `font-black` (900)
+
+## 🛠️ Development Workflow
+
+### Local Development Setup
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/reading-innovation/design-system.git
+   cd design-system
+   ```
+
+2. **Install dependencies**:
+
+   ```bash
+   yarn install
+   ```
+
+3. **Start development mode**:
+
+   ```bash
+   # Start Storybook for component development
+   yarn storybook
+
+   # Or build and serve demo
+   yarn demo
+   ```
+
+### Development Commands
+
+```bash
+# Build the design system
+yarn build
+
+# Clean build artifacts
+yarn clean
+
+# Run Storybook development server
+yarn storybook
+
+# Build Storybook for production
+yarn build-storybook
+
+# Serve demo (requires build first)
+yarn demo
+
+# Type checking
+yarn tsc --noEmit
+```
+
+### Project Structure
+
+```
+design-system/
+├── src/
+│   ├── components/          # React components
+│   │   ├── Button/
+│   │   ├── Colors/
+│   │   └── Typography/
+│   ├── styles/             # Global styles and design tokens
+│   │   ├── colors.ts       # Color definitions
+│   │   └── globals.css     # Global CSS
+│   ├── utils/              # Utility functions
+│   │   ├── cn.ts           # Class name utility
+│   │   └── fonts.ts        # Font utilities
+│   ├── tailwind.config.ts  # Tailwind configuration
+│   └── index.ts            # Main exports
+├── fonts/                  # Font files
+├── dist/                   # Built files (generated)
+└── stories/                # Storybook stories
+```
+
+## 🔄 Updating the Design System
+
+### Making Changes
+
+1. **Create a feature branch**:
+
+   ```bash
+   git checkout -b feature/new-component
+   ```
+
+2. **Make your changes**:
+
+   - Add new components in `src/components/`
+   - Update design tokens in `src/styles/`
+   - Modify Tailwind config in `src/tailwind.config.ts`
+   - Update exports in `src/index.ts`
+
+3. **Test your changes**:
+
+   ```bash
+   # Build the design system
+   yarn build
+
+   # Test in Storybook
+   yarn storybook
+
+   # Test in a consuming project (see below)
+   ```
+
+4. **Update version and publish**:
+   ```bash
+   # Update version in package.json
+   # Commit and push changes
+   git add .
+   git commit -m "feat: add new component"
+   git push origin feature/new-component
+   ```
+
+### Version Management
+
+The design system uses semantic versioning:
+
+- **Patch** (1.0.1): Bug fixes, no breaking changes
+- **Minor** (1.1.0): New features, backward compatible
+- **Major** (2.0.0): Breaking changes
+
+### Publishing Updates
+
+1. **Update version in `package.json`**:
+
+   ```json
+   {
+     "version": "1.1.0"
+   }
+   ```
+
+2. **Create a release**:
+
+   ```bash
+   git tag v1.1.0
+   git push origin v1.1.0
+   ```
+
+3. **Consuming projects can update**:
+
+   ```bash
+   # Update to latest version
+   yarn upgrade @reading-innovation/design-system
+
+   # Or pin to specific version
+   yarn add https://github.com/reading-innovation/design-system.git#v1.1.0
+   ```
+
+## 📦 Using in Other Packages
+
+### Installation Methods
+
+Direct GitHub Installation (Recommended)
+
+```bash
+# Install from GitHub
+yarn add https://github.com/reading-innovation/design-system.git
+
+# Or pin to specific version
+yarn add https://github.com/reading-innovation/design-system.git#v1.0.0
+```
+
+### Integration Steps
+
+1. **Install the design system** (see methods above)
+
+2. **Configure Tailwind CSS**:
+
+   ```javascript
+   // tailwind.config.js
+   const { getTailwindConfig } = require("@reading-innovation/design-system");
+
+   module.exports = getTailwindConfig();
+   ```
+
+3. **Import styles**:
+
+   ```css
+   /* globals.css */
+   @tailwind base;
+   @tailwind components;
+   @tailwind utilities;
+
+   @import "@reading-innovation/design-system/src/styles/globals.css";
+   ```
+
+4. **Use components**:
+
+   ```tsx
+   import { Button, Card } from "@reading-innovation/design-system";
+
+   export default function MyPage() {
+     return (
+       <Card>
+         <Button variant="primary">Hello World</Button>
+       </Card>
+     );
+   }
+   ```

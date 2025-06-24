@@ -236,15 +236,15 @@
 
   /* Glow effects */
   .glow-primary {
-    box-shadow: 0 0 20px theme("colors.primary.500");
+    box-shadow: 0 0 20px #872ae0;
   }
 
   .glow-accent {
-    box-shadow: 0 0 20px theme("colors.accent");
+    box-shadow: 0 0 20px #fe6511;
   }
 
   .glow-secondary {
-    box-shadow: 0 0 20px theme("colors.secondary");
+    box-shadow: 0 0 20px #8a8a8a;
   }
 
   /* Custom gradients */

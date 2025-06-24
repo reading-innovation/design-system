@@ -1,7 +1,7 @@
 {
   "name": "@reading-innovation/design-system",
   "version": "1.0.0",
-  "description": "Reading Innovation's DaisyUI-based design system for Next.js applications",
+  "description": "Reading Innovation's design system",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -19,16 +19,27 @@
     "demo": "yarn build && python3 -m http.server 3000 --bind 127.0.0.1 --directory .",
     "clean": "rm -rf dist",
     "prepublishOnly": "yarn build",
-    "prepare": "yarn build"
+    "prepare": "yarn build",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "peerDependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
+    "@storybook/addon-docs": "^9.0.12",
+    "@storybook/addon-onboarding": "^9.0.12",
+    "@storybook/react-vite": "^9.0.12",
+    "@testing-library/dom": "^10.4.0",
+    "@types/node": "^24.0.3",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
-    "typescript": "^5.2.2"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "storybook": "^9.0.12",
+    "typescript": "^5.2.2",
+    "vite": "^6.3.5"
   },
   "dependencies": {
     "autoprefixer": "^10.4.16",

@@ -1,7 +1,7 @@
 export { tailwindConfig as getTailwindConfig } from "./tailwind.config";
 
-export { Button } from "./components/Button";
-export type { ButtonProps } from "./components/Button";
+export { Button } from "./components/Button/Button";
+export type { ButtonProps } from "./components/Button/Button";
 export { cn } from "./utils/cn";
 
 // Export font utilities

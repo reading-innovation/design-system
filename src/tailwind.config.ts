@@ -5,6 +5,7 @@ import { colors } from "./styles/colors";
 
 export const tailwindConfig: Config = {
   content: [
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -293,27 +294,5 @@ export const tailwindConfig: Config = {
         },
       );
     }),
-  ],
-  safelist: [
-    "w-0",
-    "w-1",
-    "w-2",
-    "w-3",
-    "w-4",
-    "w-5",
-    "w-6",
-    "w-8",
-    "w-10",
-    "w-12",
-    "w-16",
-    "w-20",
-    "w-24",
-    "w-32",
-    "w-40",
-    "w-48",
-    "w-56",
-    "w-64",
-    "w-80",
-    "w-96",
   ],
 };
