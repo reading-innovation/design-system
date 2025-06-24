@@ -57,8 +57,8 @@ export const tailwindConfig: Config = {
         ...colors,
       },
       fontFamily: {
-        sans: ["var(--font-noto-sans)", "sans-serif"],
-        "sans-kr": ["var(--font-noto-sans-kr)", "sans-serif"],
+        sans: ["var(--font-noto-sans)", "system-ui", "sans-serif"],
+        "sans-kr": ["var(--font-noto-sans-kr)", "system-ui", "sans-serif"],
       },
       fontSize: {
         "title-lg-b": [
