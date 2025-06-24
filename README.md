@@ -1,6 +1,6 @@
 # Reading Innovation's Design System
 
-A design system for Next.js applications. This repository can be used directly from GitHub in your projects.
+A design system for Next.js applications with custom Noto Sans fonts, components, and design tokens.
 
 ## 🎯 Purpose
 
@@ -17,35 +17,36 @@ This repository contains:
 ### 1. Install the Design System
 
 ```bash
-# Using yarn
 yarn add https://github.com/reading-innovation/design-system.git
-
 ```
 
-Or add to your `package.json`:
+### 2. Add Font Files (Required)
 
-```json
-{
-  "dependencies": {
-    "@reading-innovation/design-system": "https://github.com/reading-innovation/design-system.git"
-  }
-}
+**Important**: You need to add the font files to your project's `public/fonts/` directory:
+
+```bash
+# Create fonts directory
+mkdir -p public/fonts
+
+# Copy font files from the design system
+cp node_modules/@reading-innovation/design-system/fonts/* public/fonts/
 ```
 
-### 2. Create Tailwind Config (One-time setup)
+**Required font files:**
 
-Create `tailwind.config.js` in your project root:
+- `NotoSans-VariableFont_wdth,wght.ttf`
+- `NotoSansKR-VariableFont_wght.ttf`
+
+### 3. Setup Configuration
+
+**Create `tailwind.config.js`:**
 
 ```javascript
 const { getTailwindConfig } = require("@reading-innovation/design-system");
-
-/** @type {import('tailwindcss').Config} */
 module.exports = getTailwindConfig();
 ```
 
-### 3. Create PostCSS Config (One-time setup)
-
-Create `postcss.config.js` in your project root:
+**Create `postcss.config.js`:**
 
 ```javascript
 module.exports = {
@@ -56,20 +57,17 @@ module.exports = {
 };
 ```
 
-### 4. Import Styles
-
-In your main CSS file (e.g., `app/globals.css` or `styles/globals.css`):
+**Import styles in your CSS file:**
 
 ```css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Import the design system styles */
 @import "@reading-innovation/design-system/src/styles/globals.css";
 ```
 
-### 5. Start Using Components!
+### 4. Start Using Components!
 
 ```tsx
 import {
@@ -84,7 +82,6 @@ export default function MyComponent() {
     <Card>
       <CardBody>
         <CardTitle>Hello World</CardTitle>
-        <p>This is a card component from the design system.</p>
         <Button variant="primary">Click me</Button>
       </CardBody>
     </Card>
@@ -92,7 +89,102 @@ export default function MyComponent() {
 }
 ```
 
-That's it! 🎉 Your design system is now ready to use.
+## 📋 Setup Checklist
+
+- [ ] Install design system: `yarn add https://github.com/reading-innovation/design-system.git`
+- [ ] **Add font files to `public/fonts/`** ⭐
+- [ ] Create `tailwind.config.js`
+- [ ] Create `postcss.config.js`
+- [ ] Import styles in your CSS
+- [ ] Start using components!
+
+## 🎨 Available Components
+
+### Button
+
+```tsx
+<Button variant="primary" size="md">Primary Button</Button>
+<Button variant="outline" size="lg">Outline Button</Button>
+<Button loading>Loading...</Button>
+```
+
+### Typography
+
+```tsx
+<h1 className="font-sans text-title-lg-b">Large Title</h1>
+<p className="font-sans text-body1">Body text</p>
+<div className="font-sans-kr">한국어 텍스트</div>
+```
+
+## 🔧 Development
+
+### Storybook
+
+```bash
+yarn storybook  # Start development server
+```
+
+### Build
+
+```bash
+yarn build     # Build the design system
+yarn demo      # View demo
+```
+
+## 📚 Font Usage
+
+The design system includes Noto Sans fonts that are automatically loaded when you:
+
+1. **Add font files to `public/fonts/`** (see step 2 above)
+2. **Import the design system CSS**
+
+### Font Families
+
+- `font-sans` - Noto Sans (variable font)
+- `font-sans-kr` - Noto Sans KR (Korean variant)
+
+### Typography Classes
+
+- `text-title-lg-b`, `text-title1-b`, `text-title2-b` (56px, 40px, 36px)
+- `text-headline1-b`, `text-headline2-b` (28px, 24px)
+- `text-heading1-b`, `text-heading2-b` (20px, 18px)
+- `text-body1`, `text-body2` (16px, 14px)
+- `text-caption` (12px)
+
+### Font Weights
+
+- `font-thin` (100) to `font-black` (900)
+
+## 🛠️ Troubleshooting
+
+### Fonts Not Loading?
+
+1. Check that font files are in `public/fonts/`
+2. Verify file names match exactly
+3. Clear browser cache
+
+### Getting Old Version?
+
+```bash
+# Force latest version
+yarn add https://github.com/reading-innovation/design-system.git#main
+
+# Or use specific commit
+yarn add https://github.com/reading-innovation/design-system.git#0fab8fa
+```
+
+## 📦 Project Structure
+
+```
+design-system/
+├── src/
+│   ├── components/     # React components
+│   ├── styles/        # Global styles
+│   ├── utils/         # Utilities
+│   └── index.ts       # Exports
+├── fonts/             # Font files (copy to public/fonts/)
+└── dist/              # Built files
+```
 
 ## 📚 Storybook
 
@@ -125,252 +217,6 @@ Storybook will be available at `http://localhost:6006`
 - **More components coming soon...**
 
 For detailed Storybook documentation, see [STORYBOOK.md](./STORYBOOK.md).
-
-## 🎨 Available Components
-
-### Button
-
-```tsx
-import { Button } from "@reading-innovation/design-system";
-
-// Variants
-<Button variant="primary">Primary</Button>
-<Button variant="secondary">Secondary</Button>
-<Button variant="accent">Accent</Button>
-<Button variant="ghost">Ghost</Button>
-<Button variant="link">Link</Button>
-<Button variant="outline">Outline</Button>
-
-// Sizes
-<Button size="xs">Extra Small</Button>
-<Button size="sm">Small</Button>
-<Button size="md">Medium</Button>
-<Button size="lg">Large</Button>
-
-// Loading state
-<Button loading>Loading...</Button>
-```
-
-## 🔧 Development
-
-### Building the Design System
-
-```bash
-yarn build
-```
-
-### Development Mode
-
-```bash
-yarn dev
-```
-
-### Clean Build
-
-```bash
-yarn clean
-```
-
-### View Demo
-
-```bash
-yarn demo
-```
-
-## 📋 Complete Setup Checklist
-
-1. ✅ **Install design system**: `yarn add https://github.com/reading-innovation/design-system.git`
-2. ✅ **Create tailwind.config.js** (one line with `getTailwindConfig()`)
-3. ✅ **Create postcss.config.js** (standard config)
-4. ✅ **Import styles** in your CSS file
-5. ✅ **Set theme** in your layout
-6. ✅ **Start using components!**
-
-## Font Usage
-
-This design system includes custom Noto Sans fonts that are automatically available to consuming packages.
-
-### Automatic Font Loading
-
-The fonts are automatically loaded when you import the design system's CSS. Simply import the styles in your consuming package:
-
-```typescript
-// In your main CSS file or _app.tsx
-import "@reading-innovation/design-system/dist/styles.css";
-```
-
-### Font Families
-
-The design system provides two font families:
-
-- **`font-sans`** - Noto Sans (variable font with width and weight axes)
-- **`font-sans-kr`** - Noto Sans KR (Korean variant)
-
-### Using Fonts in Tailwind CSS
-
-```tsx
-// Regular Noto Sans
-<div className="font-sans">This uses Noto Sans</div>
-
-// Korean Noto Sans
-<div className="font-sans-kr">이것은 Noto Sans KR을 사용합니다</div>
-
-// With typography classes
-<h1 className="font-sans text-title-lg-b">Large Title</h1>
-<p className="font-sans text-body1">Body text</p>
-```
-
-### Using Fonts in JavaScript/TypeScript
-
-```typescript
-import {
-  FONT_FAMILIES,
-  FONT_WEIGHTS,
-  getFontFamily,
-  getFontWeight,
-  fontClasses,
-  typographyClasses,
-} from "@reading-innovation/design-system";
-
-// Get font family CSS value
-const sansFont = getFontFamily("sans"); // 'var(--font-noto-sans)'
-const krFont = getFontFamily("sans-kr"); // 'var(--font-noto-sans-kr)'
-
-// Get font weight
-const boldWeight = getFontWeight("bold"); // 700
-
-// Get CSS classes
-const fontClass = fontClasses.sans; // 'font-sans'
-const titleClass = typographyClasses["title-lg-b"]; // 'text-title-lg-b'
-```
-
-### Manual Font Setup (if needed)
-
-If you need to set up fonts manually, you can use the provided CSS variables:
-
-```typescript
-import { fontCSSVariables } from "@reading-innovation/design-system";
-
-// Inject the CSS variables into your app
-const style = document.createElement("style");
-style.textContent = fontCSSVariables;
-document.head.appendChild(style);
-```
-
-### Typography Scale
-
-The design system includes a comprehensive typography scale with the following classes:
-
-#### Titles
-
-- `text-title-lg-b`, `text-title-lg-m`, `text-title-lg-r` (56px)
-- `text-title1-b`, `text-title1-m` (40px)
-- `text-title2-b`, `text-title2` (36px)
-- `text-title3-b`, `text-title3-m`, `text-title3` (32px)
-
-#### Headlines
-
-- `text-headline1-b`, `text-headline1-m`, `text-headline1` (28px)
-- `text-headline2-b`, `text-headline2-m`, `text-headline2` (24px)
-
-#### Headings
-
-- `text-heading1-b`, `text-heading1-m`, `text-heading1` (20px)
-- `text-heading2-b`, `text-heading2-m`, `text-heading2` (18px)
-
-#### Body Text
-
-- `text-body1-b`, `text-body1-sb`, `text-body1-m`, `text-body1` (16px)
-- `text-body2-b`, `text-body2-sb`, `text-body2-m`, `text-body2` (14px)
-
-#### Captions
-
-- `text-caption-b`, `text-caption-m`, `text-caption` (12px)
-
-### Font Weights
-
-The variable fonts support weights from 100 to 900:
-
-- `font-thin` (100)
-- `font-extralight` (200)
-- `font-light` (300)
-- `font-normal` (400)
-- `font-medium` (500)
-- `font-semibold` (600)
-- `font-bold` (700)
-- `font-extrabold` (800)
-- `font-black` (900)
-
-## 🛠️ Development Workflow
-
-### Local Development Setup
-
-1. **Clone the repository**:
-
-   ```bash
-   git clone https://github.com/reading-innovation/design-system.git
-   cd design-system
-   ```
-
-2. **Install dependencies**:
-
-   ```bash
-   yarn install
-   ```
-
-3. **Start development mode**:
-
-   ```bash
-   # Start Storybook for component development
-   yarn storybook
-
-   # Or build and serve demo
-   yarn demo
-   ```
-
-### Development Commands
-
-```bash
-# Build the design system
-yarn build
-
-# Clean build artifacts
-yarn clean
-
-# Run Storybook development server
-yarn storybook
-
-# Build Storybook for production
-yarn build-storybook
-
-# Serve demo (requires build first)
-yarn demo
-
-# Type checking
-yarn tsc --noEmit
-```
-
-### Project Structure
-
-```
-design-system/
-├── src/
-│   ├── components/          # React components
-│   │   ├── Button/
-│   │   ├── Colors/
-│   │   └── Typography/
-│   ├── styles/             # Global styles and design tokens
-│   │   ├── colors.ts       # Color definitions
-│   │   └── globals.css     # Global CSS
-│   ├── utils/              # Utility functions
-│   │   ├── cn.ts           # Class name utility
-│   │   └── fonts.ts        # Font utilities
-│   ├── tailwind.config.ts  # Tailwind configuration
-│   └── index.ts            # Main exports
-├── fonts/                  # Font files
-├── dist/                   # Built files (generated)
-└── stories/                # Storybook stories
-```
 
 ## 🔄 Updating the Design System
 
