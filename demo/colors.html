@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Colors - Reading Innovation Design System</title>
+    <link rel="stylesheet" href="../dist/styles.css" />
+    <style>
+      .demo-section {
+        margin: 2rem 0;
+        padding: 2rem;
+        border: 1px solid hsl(var(--bc) / 0.2);
+        border-radius: 0.5rem;
+      }
+      .color-palette {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 0.5rem;
+        margin: 1rem 0;
+      }
+      .color-swatch {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        text-align: center;
+        font-weight: 600;
+        color: white;
+      }
+    </style>
+  </head>
+  <body class="bg-base-100 text-base-content font-sans">
+    <div class="container mx-auto p-4">
+      <header class="text-center mb-8">
+        <h1 class="text-4xl font-bold mb-4">
+          Reading Innovation Design System
+        </h1>
+        <nav class="flex justify-center gap-4 mb-8">
+          <a href="colors.html" class="btn btn-primary">Colors</a>
+          <a href="buttons.html" class="btn btn-outline">Buttons</a>
+          <a href="animations.html" class="btn btn-outline">Animations</a>
+          <a href="spacing.html" class="btn btn-outline">Spacing</a>
+          <a href="typography.html" class="btn btn-outline">Typography</a>
+        </nav>
+      </header>
+
+      <!-- Color Palette -->
+      <section class="demo-section">
+        <h2 class="text-2xl font-bold mb-4">Color Palette</h2>
+        <div class="color-palette">
+          <div class="color-swatch bg-primary">Primary</div>
+          <div class="color-swatch bg-secondary">Secondary</div>
+          <div class="color-swatch bg-accent">Accent</div>
+          <div class="color-swatch bg-neutral">Neutral</div>
+          <div class="color-swatch bg-info">Info</div>
+          <div class="color-swatch bg-success">Success</div>
+          <div class="color-swatch bg-warning">Warning</div>
+          <div class="color-swatch bg-error">Error</div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

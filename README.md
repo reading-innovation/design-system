@@ -311,3 +311,118 @@ Or use specific commits:
 ## 📄 License
 
 MIT - Feel free to use this design system in Reading Innovation's projects.
+
+## Font Usage
+
+This design system includes custom Noto Sans fonts that are automatically available to consuming packages.
+
+### Automatic Font Loading
+
+The fonts are automatically loaded when you import the design system's CSS. Simply import the styles in your consuming package:
+
+```typescript
+// In your main CSS file or _app.tsx
+import "@reading-innovation/design-system/dist/styles.css";
+```
+
+### Font Families
+
+The design system provides two font families:
+
+- **`font-sans`** - Noto Sans (variable font with width and weight axes)
+- **`font-sans-kr`** - Noto Sans KR (Korean variant)
+
+### Using Fonts in Tailwind CSS
+
+```tsx
+// Regular Noto Sans
+<div className="font-sans">This uses Noto Sans</div>
+
+// Korean Noto Sans
+<div className="font-sans-kr">이것은 Noto Sans KR을 사용합니다</div>
+
+// With typography classes
+<h1 className="font-sans text-title-lg-b">Large Title</h1>
+<p className="font-sans text-body1">Body text</p>
+```
+
+### Using Fonts in JavaScript/TypeScript
+
+```typescript
+import {
+  FONT_FAMILIES,
+  FONT_WEIGHTS,
+  getFontFamily,
+  getFontWeight,
+  fontClasses,
+  typographyClasses,
+} from "@reading-innovation/design-system";
+
+// Get font family CSS value
+const sansFont = getFontFamily("sans"); // 'var(--font-noto-sans)'
+const krFont = getFontFamily("sans-kr"); // 'var(--font-noto-sans-kr)'
+
+// Get font weight
+const boldWeight = getFontWeight("bold"); // 700
+
+// Get CSS classes
+const fontClass = fontClasses.sans; // 'font-sans'
+const titleClass = typographyClasses["title-lg-b"]; // 'text-title-lg-b'
+```
+
+### Manual Font Setup (if needed)
+
+If you need to set up fonts manually, you can use the provided CSS variables:
+
+```typescript
+import { fontCSSVariables } from "@reading-innovation/design-system";
+
+// Inject the CSS variables into your app
+const style = document.createElement("style");
+style.textContent = fontCSSVariables;
+document.head.appendChild(style);
+```
+
+### Typography Scale
+
+The design system includes a comprehensive typography scale with the following classes:
+
+#### Titles
+
+- `text-title-lg-b`, `text-title-lg-m`, `text-title-lg-r` (56px)
+- `text-title1-b`, `text-title1-m` (40px)
+- `text-title2-b`, `text-title2` (36px)
+- `text-title3-b`, `text-title3-m`, `text-title3` (32px)
+
+#### Headlines
+
+- `text-headline1-b`, `text-headline1-m`, `text-headline1` (28px)
+- `text-headline2-b`, `text-headline2-m`, `text-headline2` (24px)
+
+#### Headings
+
+- `text-heading1-b`, `text-heading1-m`, `text-heading1` (20px)
+- `text-heading2-b`, `text-heading2-m`, `text-heading2` (18px)
+
+#### Body Text
+
+- `text-body1-b`, `text-body1-sb`, `text-body1-m`, `text-body1` (16px)
+- `text-body2-b`, `text-body2-sb`, `text-body2-m`, `text-body2` (14px)
+
+#### Captions
+
+- `text-caption-b`, `text-caption-m`, `text-caption` (12px)
+
+### Font Weights
+
+The variable fonts support weights from 100 to 900:
+
+- `font-thin` (100)
+- `font-extralight` (200)
+- `font-light` (300)
+- `font-normal` (400)
+- `font-medium` (500)
+- `font-semibold` (600)
+- `font-bold` (700)
+- `font-extrabold` (800)
+- `font-black` (900)
