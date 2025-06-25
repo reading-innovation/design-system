@@ -94,11 +94,11 @@
   }
 
   .button:hover {
-    @apply bg-control-blue-hover;
+    @apply bg-control-blueHover;
   }
 
   .button:active {
-    @apply bg-control-blue-pressed;
+    @apply bg-control-bluePressed;
   }
 
   .button:disabled {

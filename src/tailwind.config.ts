@@ -277,7 +277,18 @@ export const tailwindConfig: Config = {
   },
   plugins: [
     daisyui,
-    plugin(({ matchUtilities }) => {
+    plugin(({ addUtilities, matchUtilities }) => {
+      // Static radius utilities
+      addUtilities({
+        ".radius-sm": { "border-radius": "4px" },
+        ".radius-md": { "border-radius": "8px" },
+        ".radius-lg": { "border-radius": "12px" },
+        ".radius-xl": { "border-radius": "20px" },
+        ".radius-2xl": { "border-radius": "28px" },
+        ".radius-full": { "border-radius": "999px" },
+      });
+
+      // Dynamic radius utility
       matchUtilities(
         {
           radius: (value: string) => ({ "border-radius": value }),

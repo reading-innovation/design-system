@@ -40,7 +40,6 @@ const colors = {
     900: "#2E2E2E",
     950: "#171717",
   },
-
   common: {
     0: "#FFF",
     950: "#000",
@@ -129,12 +128,11 @@ const colors = {
     tertiary: "#707070",
     helper: "#A0A0A0",
     disabled: "#B7B7B7",
-    accent: {
-      blue: "#20B0F5",
-      purple: "#9D50E8",
-      orange: "#FE6511",
-    },
+    accentBlue: "#20B0F5",
+    accentPurple: "#9D50E8",
+    accentOrange: "#FE6511",
     success: "#37C621",
+    error: "#F75344",
   },
   button: {
     primary: "#20B0F5",
@@ -148,10 +146,10 @@ const colors = {
     primary: "#FFFFFF",
     secondary: "#F7F7F8",
     tertiary: "#F6F6F6",
-    dimmer: "#F7F7F8",
+    dimmer: "#17171766",
   },
   surface: {
-    white: { hover: "#F6F6F6", pressed: "#EEEEEE" },
+    white: { hover: "#F6F6F6", pressed: "#EEEEEE", dimmer: "#70737C29" },
     blue: {
       selected: "#C5EAFC66",
     },
@@ -161,8 +159,8 @@ const colors = {
     },
   },
   control: {
-    "blue-hover": "#46BDF6",
-    "blue-pressed": "#0BA7F1",
+    blueHover: "#46BDF6",
+    bluePressed: "#0BA7F1",
   },
   outline: {
     primary: "#E8E8E8",

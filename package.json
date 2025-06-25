@@ -16,7 +16,6 @@
   "scripts": {
     "build": "tsc",
     "postbuild": "tailwindcss -i ./src/styles/globals.css -o ./dist/styles.css",
-    "demo": "yarn build && python3 -m http.server 3000 --bind 127.0.0.1 --directory .",
     "clean": "rm -rf dist",
     "prepublishOnly": "yarn build",
     "prepare": "yarn build",

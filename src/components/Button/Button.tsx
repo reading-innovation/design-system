@@ -3,60 +3,104 @@ import { cn } from "../../utils/cn";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "accent" | "ghost" | "link" | "outline";
-  size?: "xs" | "sm" | "md" | "lg";
+  variant?: "strong" | "outline" | "ghost";
+  size?: "xs" | "sm" | "big";
   loading?: boolean;
+  leftIcon?: React.ReactNode;
   children: React.ReactNode;
 }
 
 const Button: React.FC<ButtonProps> = ({
-  variant = "primary",
-  size = "md",
+  variant = "strong",
+  size = "sm",
   loading = false,
+  leftIcon,
   className,
   disabled,
   children,
   ...props
 }) => {
   const baseClasses =
-    "btn relative overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95";
+    "relative overflow-hidden transition-all duration-200 text-body2-m";
 
   const variantClasses = {
-    primary:
-      "btn-primary bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 shadow-lg hover:shadow-xl border-2 border-blue-400",
-    secondary:
-      "btn-secondary bg-gradient-to-r from-gray-500 to-slate-600 hover:from-gray-600 hover:to-slate-700 shadow-lg hover:shadow-xl border-2 border-gray-400",
-    accent:
-      "btn-accent bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 shadow-lg hover:shadow-xl border-2 border-yellow-300",
-    ghost:
-      "btn-ghost hover:bg-gradient-to-r hover:from-gray-100 hover:to-gray-200 border-2 border-transparent hover:border-gray-300",
-    link: "btn-link underline decoration-2 underline-offset-4 hover:decoration-4",
-    outline: "btn-outline border-2 hover:border-4 transition-all duration-200",
+    strong: {
+      base: "bg-button-primary text-white shadow-sm",
+      hover: "hover:bg-control-blueHover hover:shadow-md",
+      pressed: "active:bg-control-bluePressed",
+      disabled:
+        "disabled:bg-button-disabled disabled:text-label-disabled disabled:shadow-none disabled:cursor-not-allowed",
+      focus: "focus:ring-button-primary",
+    },
+    outline: {
+      base: "bg-transparent text-label-primary border border-outline-primary",
+      hover: "hover:bg-surface-white-hover",
+      pressed: "active:bg-surface-white-pressed",
+      disabled:
+        "disabled:bg-transparent disabled:text-label-disabled disabled:border-outline-primary disabled:cursor-not-allowed",
+      focus: "focus:ring-button-primary",
+    },
+    ghost: {
+      base: "bg-transparent text-label-secondary",
+      hover: "hover:bg-surface-white-hover hover:text-label-primary",
+      pressed: "active:bg-surface-white-pressed active:text-label-primary",
+      disabled: "disabled:text-label-disabled disabled:cursor-not-allowed",
+      focus: "focus:ring-neutral-400",
+    },
   };
 
   const sizeClasses = {
-    xs: "btn-xs text-xs px-3 py-1 rounded-full",
-    sm: "btn-sm text-sm px-4 py-2 rounded-lg",
-    md: "text-base px-6 py-3 rounded-xl", // Default size
-    lg: "btn-lg text-lg px-8 py-4 rounded-2xl",
+    xs: "text-xs h-9 px-3 radius-md",
+    sm: "text-sm h-11 px-4 radius-md",
+    big: "text-base h-[54px] px-5 radius-lg",
   };
+
+  const currentVariant = variantClasses[variant];
+
+  // Default plus icon if leftIcon is true but no specific icon provided
+  const defaultPlusIcon = (
+    <svg
+      width="10"
+      height="10"
+      viewBox="0 0 10 10"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="flex-shrink-0">
+      <path
+        d="M5 1V9M1 5H9"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+
+  const iconToRender = leftIcon === true ? defaultPlusIcon : leftIcon;
 
   return (
     <button
       className={cn(
         baseClasses,
-        variantClasses[variant],
+        currentVariant.base,
+        currentVariant.hover,
+        currentVariant.pressed,
+        currentVariant.disabled,
+        currentVariant.focus,
         sizeClasses[size],
-        loading && "loading",
-        "font-bold tracking-wide",
-        "before:absolute before:inset-0 before:bg-white before:opacity-0 hover:before:opacity-10 before:transition-opacity before:duration-300",
+        loading && "cursor-wait",
         className,
       )}
       disabled={disabled || loading}
       {...props}>
-      <span className="relative z-10 flex items-center gap-2">
+      <span className="flex items-center justify-center gap-2">
         {loading && (
           <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
+        )}
+        {iconToRender && !loading && (
+          <span className="flex items-center justify-center">
+            {iconToRender}
+          </span>
         )}
         {children}
       </span>
