@@ -1,6 +1,7 @@
 export { tailwindConfig as getTailwindConfig } from "./tailwind.config";
 
 export { Button } from "./components/Button/Button";
+export { SpeechBubble } from "./components/SpeechBubble/SpeechBubble";
 export type { ButtonProps } from "./components/Button/Button";
 export { cn } from "./utils/cn";
 
