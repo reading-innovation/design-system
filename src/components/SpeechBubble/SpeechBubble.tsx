@@ -2,7 +2,7 @@ import React from "react";
 import { cn } from "../../utils/cn";
 
 export interface SpeechBubbleProps {
-  text: string;
+  text?: string;
   className?: string;
   contentClassName?: string;
   children?: React.ReactNode;
